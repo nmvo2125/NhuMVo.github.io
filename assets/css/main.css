@@ -291,40 +291,23 @@ input, select, textarea {
 
 		}
 
-/* Legacy code for loading signature on page load, since replaced by loading signature on page scroll via IntersectionObserver API */
-/* 
-.signature1 {
-	stroke-dasharray: 2500;
-	animation: draw1 6s linear forwards;
-}
-
-.signature2 {
-	stroke-dasharray: 100;
-	animation: draw2 6s linear forwards;
-}
-
-.signature3 {
-	stroke-dasharray: 1500;
-	animation: draw3 6s linear forwards;
-} */
 
 @keyframes draw1 {
-	0% {
-		stroke-dashoffset: 2500;
+	0%  {
+		stroke-dashoffset: 2800;
 	}
 
-	50% {
+	100% {
 		stroke-dashoffset: 0;
 	}
 }
 
 @keyframes draw2 {
-	0%,
-	30% {
-		stroke-dashoffset: 100;
+	0%  {
+		stroke-dashoffset: 2800;
 	}
 
-	35% {
+	100% {
 		stroke-dashoffset: 0;
 	}
 }
@@ -332,7 +315,18 @@ input, select, textarea {
 @keyframes draw3 {
 	0%,
 	50% {
-		stroke-dashoffset: 1720;
+		stroke-dashoffset: 2800;
+	}
+
+	100% {
+		stroke-dashoffset: 0;
+	}
+}
+
+@keyframes draw4 {
+	0%,
+	50% {
+		stroke-dashoffset: 2800;
 	}
 
 	100% {
@@ -350,29 +344,45 @@ input, select, textarea {
 	}
   }
 
-/* Advanced Signature Animation :) */
-.signature {
+
+  .signature {
+	position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Ensure they all take the same space */
+    height: 100%;
 	fill: none;
 	stroke: black;
 	stroke-width: 4;
+	stroke-dashoffset: 2800; /* Hides stroke initially */
+	stroke-dasharray: 2800;
+
+}
+
+.signature-container {
+    position: relative;
+	min-height: 300px;
 }
 
 .signature1-animation {
 	animation-name: draw1;
-	stroke-dasharray: 2500;
-	animation: draw1 5s linear forwards;
+	animation: draw1 2.5s linear forwards;
 }
 
 .signature2-animation {
-	animation-name: draw2;
-	stroke-dasharray: 100;
-	animation: draw2 5s linear forwards;
+	animation-name: draw1;
+	animation: draw2 2s linear forwards;
+	animation-delay: 0.8s;
 }
 
 .signature3-animation {
-	animation-name: draw3;
-	stroke-dasharray: 1720;
-	animation: draw3 5s linear forwards;
+	animation-name: draw1;
+	animation: draw3 2.5s linear forwards;
+}
+
+.signature4-animation {
+	animation-name: draw1;
+	animation: draw4 4s linear forwards;
 }
 
 /* Typing Animation */

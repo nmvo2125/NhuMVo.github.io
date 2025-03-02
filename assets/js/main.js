@@ -145,40 +145,14 @@
 
 })(jQuery);
 
-// Signature attempt 2
-
-function animatePath(pathname, animation) {
-	var path = document.querySelector(pathname);
-	var length = path.getTotalLength();
-	// Clear any previous transition
-	path.style.transition = path.style.WebkitTransition =
-		'none';
-	// Set up the starting positions
-	path.style.strokeDasharray = length + ' ' + length;
-	path.style.strokeDashoffset = length;
-	// Trigger a layout so styles are calculated & the browser
-	// picks up the starting position before animating
-	path.getBoundingClientRect();
-	// Define our transition
-	path.style.transition = path.style.WebkitTransition =
-		animation;
-	// Go!
-	path.style.strokeDashoffset = '0';
-}
-
-// Signature
-
-// Create the observers
 const observer = new IntersectionObserver(entries => {
 	entries.forEach(entry => {
-		// Iterates for signatures 1-3 inclusive
-		for (let i = 1; i < 4; i++) {
+		for (let i = 1; i < 5; i++) {
 			const signature = document.querySelector(".signature"+String(i));
 			if (entry.isIntersecting) {
 				signature.classList.add("signature"+String(i)+"-animation");
 			}
 			else {
-				// We're not intersecting, so remove the class!
 				signature.classList.remove("signature"+String(i)+"-animation");
 			}
 		}
