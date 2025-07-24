@@ -566,6 +566,25 @@
 			}
 		}
 	</script>
+			
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var accButtons = document.querySelectorAll('.accordion-button, .accordion-button-1');
+    accButtons.forEach(function (button) {
+      var section = button.closest('section');
+      var content = section.querySelector('.accordion-content, .accordion-content-1');
+      button.addEventListener('click', function () {
+        if (content) {
+          content.style.display = content.style.display === 'none' ? 'block' : 'none';
+        }
+      });
+      if (content) {
+        content.style.display = 'none';
+      }
+    });
+  });
+</script>
+			
 
 </body>
 
